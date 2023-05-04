@@ -1,0 +1,1468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище TVcompanyModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="id_ac" />
+          </Key>
+          <Property Name="id_ac" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="25" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Advertising">
+          <Key>
+            <PropertyRef Name="id_advertising" />
+          </Key>
+          <Property Name="id_advertising" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Product" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Wishes" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_DesiredDisplayTime" Type="int" Nullable="false" />
+          <Property Name="id_AgeRestrictions" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AgeRestrictions">
+          <Key>
+            <PropertyRef Name="id_AgeRestrictions" />
+          </Key>
+          <Property Name="id_AgeRestrictions" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Limitations" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Analyst">
+          <Key>
+            <PropertyRef Name="id_Analyst" />
+          </Key>
+          <Property Name="id_Analyst" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIO" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_ac" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CheckingAds">
+          <Key>
+            <PropertyRef Name="id_CheckingAds" />
+          </Key>
+          <Property Name="id_CheckingAds" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameChecking" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_Director" Type="int" Nullable="false" />
+          <Property Name="id_advertising" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CheckingAgeLimit">
+          <Key>
+            <PropertyRef Name="id_ChekingAge" />
+          </Key>
+          <Property Name="id_ChekingAge" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Reason" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_Director" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="id_Customer" />
+          </Key>
+          <Property Name="id_Customer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIO" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="id_ac" Type="int" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="NumberCard" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomersBalance">
+          <Key>
+            <PropertyRef Name="id_CustomersBalance" />
+          </Key>
+          <Property Name="id_CustomersBalance" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Balans" Type="money" />
+          <Property Name="id_Customer" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DesiredDisplayTime">
+          <Key>
+            <PropertyRef Name="id_DesiredDisplayTime" />
+          </Key>
+          <Property Name="id_DesiredDisplayTime" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateTimr" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Director">
+          <Key>
+            <PropertyRef Name="id_Director" />
+          </Key>
+          <Property Name="id_Director" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIO" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_ac" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Esters">
+          <Key>
+            <PropertyRef Name="id_Esters" />
+          </Key>
+          <Property Name="id_Esters" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateEsters" Type="date" Nullable="false" />
+          <Property Name="NameEsters" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_AgeRestrictions" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InternalCurrency">
+          <Key>
+            <PropertyRef Name="id_InternalCurrency" />
+          </Key>
+          <Property Name="id_InternalCurrency" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameCurrency" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Balance" Type="money" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="id_Manager" />
+          </Key>
+          <Property Name="id_Manager" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIO" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_ac" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PreparationProgram">
+          <Key>
+            <PropertyRef Name="id_PreparationProgram" />
+          </Key>
+          <Property Name="id_PreparationProgram" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameProgram" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_advertising" Type="int" />
+          <Property Name="id_Esters" Type="int" />
+          <Property Name="id_telecast" Type="int" />
+          <Property Name="id_Analyst" Type="int" Nullable="false" />
+          <Property Name="id_ProgramRelease" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProgramRelease">
+          <Key>
+            <PropertyRef Name="id_ProgramRelease" />
+          </Key>
+          <Property Name="id_ProgramRelease" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Day" Type="date" Nullable="false" />
+          <Property Name="id_Manager" Type="int" Nullable="false" />
+          <Property Name="id_Program" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PurchaseAds">
+          <Key>
+            <PropertyRef Name="id_PurchaseAds" />
+          </Key>
+          <Property Name="id_PurchaseAds" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+          <Property Name="Duration" Type="time" Precision="0" Nullable="false" />
+          <Property Name="id_InternalCurrency" Type="int" Nullable="false" />
+          <Property Name="id_advertising" Type="int" Nullable="false" />
+          <Property Name="id_Manager" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PurchaseOfCurrency">
+          <Key>
+            <PropertyRef Name="id_Purchase" />
+          </Key>
+          <Property Name="id_Purchase" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ConfirmationOfPurchase" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_CustomersBalance" Type="int" Nullable="false" />
+          <Property Name="id_InternalCurrency" Type="int" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResultChecking">
+          <Key>
+            <PropertyRef Name="id_ResultChecking" />
+          </Key>
+          <Property Name="id_ResultChecking" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Result" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_AgeRestrictions" Type="int" Nullable="false" />
+          <Property Name="id_ChekingAge" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Telecast">
+          <Key>
+            <PropertyRef Name="id_telecast" />
+          </Key>
+          <Property Name="id_telecast" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameTransfers" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Duration" Type="time" Precision="0" Nullable="false" />
+          <Property Name="id_AgeRestrictions" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Advertising_AgeRestrictions">
+          <End Role="AgeRestrictions" Type="Self.AgeRestrictions" Multiplicity="1" />
+          <End Role="Advertising" Type="Self.Advertising" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgeRestrictions">
+              <PropertyRef Name="id_AgeRestrictions" />
+            </Principal>
+            <Dependent Role="Advertising">
+              <PropertyRef Name="id_AgeRestrictions" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertising_DesiredDisplayTime">
+          <End Role="DesiredDisplayTime" Type="Self.DesiredDisplayTime" Multiplicity="1" />
+          <End Role="Advertising" Type="Self.Advertising" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DesiredDisplayTime">
+              <PropertyRef Name="id_DesiredDisplayTime" />
+            </Principal>
+            <Dependent Role="Advertising">
+              <PropertyRef Name="id_DesiredDisplayTime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Analyst_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Analyst" Type="Self.Analyst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="id_ac" />
+            </Principal>
+            <Dependent Role="Analyst">
+              <PropertyRef Name="id_ac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CheckingAds_Advertising">
+          <End Role="Advertising" Type="Self.Advertising" Multiplicity="1" />
+          <End Role="CheckingAds" Type="Self.CheckingAds" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertising">
+              <PropertyRef Name="id_advertising" />
+            </Principal>
+            <Dependent Role="CheckingAds">
+              <PropertyRef Name="id_advertising" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CheckingAds_Director">
+          <End Role="Director" Type="Self.Director" Multiplicity="1" />
+          <End Role="CheckingAds" Type="Self.CheckingAds" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Director">
+              <PropertyRef Name="id_Director" />
+            </Principal>
+            <Dependent Role="CheckingAds">
+              <PropertyRef Name="id_Director" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CheckingAgeLimit_Director">
+          <End Role="Director" Type="Self.Director" Multiplicity="1" />
+          <End Role="CheckingAgeLimit" Type="Self.CheckingAgeLimit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Director">
+              <PropertyRef Name="id_Director" />
+            </Principal>
+            <Dependent Role="CheckingAgeLimit">
+              <PropertyRef Name="id_Director" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="id_ac" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="id_ac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomersBalance_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CustomersBalance" Type="Self.CustomersBalance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="id_Customer" />
+            </Principal>
+            <Dependent Role="CustomersBalance">
+              <PropertyRef Name="id_Customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Director_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Director" Type="Self.Director" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="id_ac" />
+            </Principal>
+            <Dependent Role="Director">
+              <PropertyRef Name="id_ac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Esters_AgeRestrictions">
+          <End Role="AgeRestrictions" Type="Self.AgeRestrictions" Multiplicity="1" />
+          <End Role="Esters" Type="Self.Esters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgeRestrictions">
+              <PropertyRef Name="id_AgeRestrictions" />
+            </Principal>
+            <Dependent Role="Esters">
+              <PropertyRef Name="id_AgeRestrictions" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Manager_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Manager" Type="Self.Manager" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="id_ac" />
+            </Principal>
+            <Dependent Role="Manager">
+              <PropertyRef Name="id_ac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreparationProgram_Advertising">
+          <End Role="Advertising" Type="Self.Advertising" Multiplicity="0..1" />
+          <End Role="PreparationProgram" Type="Self.PreparationProgram" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertising">
+              <PropertyRef Name="id_advertising" />
+            </Principal>
+            <Dependent Role="PreparationProgram">
+              <PropertyRef Name="id_advertising" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreparationProgram_Analyst">
+          <End Role="Analyst" Type="Self.Analyst" Multiplicity="1" />
+          <End Role="PreparationProgram" Type="Self.PreparationProgram" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Analyst">
+              <PropertyRef Name="id_Analyst" />
+            </Principal>
+            <Dependent Role="PreparationProgram">
+              <PropertyRef Name="id_Analyst" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreparationProgram_Esters">
+          <End Role="Esters" Type="Self.Esters" Multiplicity="0..1" />
+          <End Role="PreparationProgram" Type="Self.PreparationProgram" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Esters">
+              <PropertyRef Name="id_Esters" />
+            </Principal>
+            <Dependent Role="PreparationProgram">
+              <PropertyRef Name="id_Esters" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreparationProgram_ProgramRelease">
+          <End Role="ProgramRelease" Type="Self.ProgramRelease" Multiplicity="1" />
+          <End Role="PreparationProgram" Type="Self.PreparationProgram" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProgramRelease">
+              <PropertyRef Name="id_ProgramRelease" />
+            </Principal>
+            <Dependent Role="PreparationProgram">
+              <PropertyRef Name="id_ProgramRelease" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreparationProgram_Telecast">
+          <End Role="Telecast" Type="Self.Telecast" Multiplicity="0..1" />
+          <End Role="PreparationProgram" Type="Self.PreparationProgram" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Telecast">
+              <PropertyRef Name="id_telecast" />
+            </Principal>
+            <Dependent Role="PreparationProgram">
+              <PropertyRef Name="id_telecast" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgramRelease_Manager">
+          <End Role="Manager" Type="Self.Manager" Multiplicity="1" />
+          <End Role="ProgramRelease" Type="Self.ProgramRelease" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manager">
+              <PropertyRef Name="id_Manager" />
+            </Principal>
+            <Dependent Role="ProgramRelease">
+              <PropertyRef Name="id_Manager" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseAds_Advertising">
+          <End Role="Advertising" Type="Self.Advertising" Multiplicity="1" />
+          <End Role="PurchaseAds" Type="Self.PurchaseAds" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertising">
+              <PropertyRef Name="id_advertising" />
+            </Principal>
+            <Dependent Role="PurchaseAds">
+              <PropertyRef Name="id_advertising" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseAds_InternalCurrency">
+          <End Role="InternalCurrency" Type="Self.InternalCurrency" Multiplicity="1" />
+          <End Role="PurchaseAds" Type="Self.PurchaseAds" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InternalCurrency">
+              <PropertyRef Name="id_InternalCurrency" />
+            </Principal>
+            <Dependent Role="PurchaseAds">
+              <PropertyRef Name="id_InternalCurrency" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseOfCurrency_CustomersBalance">
+          <End Role="CustomersBalance" Type="Self.CustomersBalance" Multiplicity="1" />
+          <End Role="PurchaseOfCurrency" Type="Self.PurchaseOfCurrency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomersBalance">
+              <PropertyRef Name="id_CustomersBalance" />
+            </Principal>
+            <Dependent Role="PurchaseOfCurrency">
+              <PropertyRef Name="id_CustomersBalance" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseOfCurrency_InternalCurrency">
+          <End Role="InternalCurrency" Type="Self.InternalCurrency" Multiplicity="1" />
+          <End Role="PurchaseOfCurrency" Type="Self.PurchaseOfCurrency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InternalCurrency">
+              <PropertyRef Name="id_InternalCurrency" />
+            </Principal>
+            <Dependent Role="PurchaseOfCurrency">
+              <PropertyRef Name="id_InternalCurrency" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResultChecking_AgeRestrictions">
+          <End Role="AgeRestrictions" Type="Self.AgeRestrictions" Multiplicity="1" />
+          <End Role="ResultChecking" Type="Self.ResultChecking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgeRestrictions">
+              <PropertyRef Name="id_AgeRestrictions" />
+            </Principal>
+            <Dependent Role="ResultChecking">
+              <PropertyRef Name="id_AgeRestrictions" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResultChecking_CheckingAgeLimit">
+          <End Role="CheckingAgeLimit" Type="Self.CheckingAgeLimit" Multiplicity="1" />
+          <End Role="ResultChecking" Type="Self.ResultChecking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CheckingAgeLimit">
+              <PropertyRef Name="id_ChekingAge" />
+            </Principal>
+            <Dependent Role="ResultChecking">
+              <PropertyRef Name="id_ChekingAge" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Telecast_AgeRestrictions">
+          <End Role="AgeRestrictions" Type="Self.AgeRestrictions" Multiplicity="1" />
+          <End Role="Telecast" Type="Self.Telecast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgeRestrictions">
+              <PropertyRef Name="id_AgeRestrictions" />
+            </Principal>
+            <Dependent Role="Telecast">
+              <PropertyRef Name="id_AgeRestrictions" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище TVcompanyModelContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Advertising" EntityType="Self.Advertising" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AgeRestrictions" EntityType="Self.AgeRestrictions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Analyst" EntityType="Self.Analyst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CheckingAds" EntityType="Self.CheckingAds" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CheckingAgeLimit" EntityType="Self.CheckingAgeLimit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomersBalance" EntityType="Self.CustomersBalance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DesiredDisplayTime" EntityType="Self.DesiredDisplayTime" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Director" EntityType="Self.Director" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Esters" EntityType="Self.Esters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InternalCurrency" EntityType="Self.InternalCurrency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PreparationProgram" EntityType="Self.PreparationProgram" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProgramRelease" EntityType="Self.ProgramRelease" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchaseAds" EntityType="Self.PurchaseAds" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchaseOfCurrency" EntityType="Self.PurchaseOfCurrency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResultChecking" EntityType="Self.ResultChecking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Telecast" EntityType="Self.Telecast" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Advertising_AgeRestrictions" Association="Self.FK_Advertising_AgeRestrictions">
+            <End Role="AgeRestrictions" EntitySet="AgeRestrictions" />
+            <End Role="Advertising" EntitySet="Advertising" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertising_DesiredDisplayTime" Association="Self.FK_Advertising_DesiredDisplayTime">
+            <End Role="DesiredDisplayTime" EntitySet="DesiredDisplayTime" />
+            <End Role="Advertising" EntitySet="Advertising" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Analyst_Account" Association="Self.FK_Analyst_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Analyst" EntitySet="Analyst" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CheckingAds_Advertising" Association="Self.FK_CheckingAds_Advertising">
+            <End Role="Advertising" EntitySet="Advertising" />
+            <End Role="CheckingAds" EntitySet="CheckingAds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CheckingAds_Director" Association="Self.FK_CheckingAds_Director">
+            <End Role="Director" EntitySet="Director" />
+            <End Role="CheckingAds" EntitySet="CheckingAds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CheckingAgeLimit_Director" Association="Self.FK_CheckingAgeLimit_Director">
+            <End Role="Director" EntitySet="Director" />
+            <End Role="CheckingAgeLimit" EntitySet="CheckingAgeLimit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Account" Association="Self.FK_Customer_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomersBalance_Customer" Association="Self.FK_CustomersBalance_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomersBalance" EntitySet="CustomersBalance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Director_Account" Association="Self.FK_Director_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Director" EntitySet="Director" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Esters_AgeRestrictions" Association="Self.FK_Esters_AgeRestrictions">
+            <End Role="AgeRestrictions" EntitySet="AgeRestrictions" />
+            <End Role="Esters" EntitySet="Esters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Manager_Account" Association="Self.FK_Manager_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Manager" EntitySet="Manager" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreparationProgram_Advertising" Association="Self.FK_PreparationProgram_Advertising">
+            <End Role="Advertising" EntitySet="Advertising" />
+            <End Role="PreparationProgram" EntitySet="PreparationProgram" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreparationProgram_Analyst" Association="Self.FK_PreparationProgram_Analyst">
+            <End Role="Analyst" EntitySet="Analyst" />
+            <End Role="PreparationProgram" EntitySet="PreparationProgram" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreparationProgram_Esters" Association="Self.FK_PreparationProgram_Esters">
+            <End Role="Esters" EntitySet="Esters" />
+            <End Role="PreparationProgram" EntitySet="PreparationProgram" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreparationProgram_ProgramRelease" Association="Self.FK_PreparationProgram_ProgramRelease">
+            <End Role="ProgramRelease" EntitySet="ProgramRelease" />
+            <End Role="PreparationProgram" EntitySet="PreparationProgram" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreparationProgram_Telecast" Association="Self.FK_PreparationProgram_Telecast">
+            <End Role="Telecast" EntitySet="Telecast" />
+            <End Role="PreparationProgram" EntitySet="PreparationProgram" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgramRelease_Manager" Association="Self.FK_ProgramRelease_Manager">
+            <End Role="Manager" EntitySet="Manager" />
+            <End Role="ProgramRelease" EntitySet="ProgramRelease" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseAds_Advertising" Association="Self.FK_PurchaseAds_Advertising">
+            <End Role="Advertising" EntitySet="Advertising" />
+            <End Role="PurchaseAds" EntitySet="PurchaseAds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseAds_InternalCurrency" Association="Self.FK_PurchaseAds_InternalCurrency">
+            <End Role="InternalCurrency" EntitySet="InternalCurrency" />
+            <End Role="PurchaseAds" EntitySet="PurchaseAds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOfCurrency_CustomersBalance" Association="Self.FK_PurchaseOfCurrency_CustomersBalance">
+            <End Role="CustomersBalance" EntitySet="CustomersBalance" />
+            <End Role="PurchaseOfCurrency" EntitySet="PurchaseOfCurrency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOfCurrency_InternalCurrency" Association="Self.FK_PurchaseOfCurrency_InternalCurrency">
+            <End Role="InternalCurrency" EntitySet="InternalCurrency" />
+            <End Role="PurchaseOfCurrency" EntitySet="PurchaseOfCurrency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResultChecking_AgeRestrictions" Association="Self.FK_ResultChecking_AgeRestrictions">
+            <End Role="AgeRestrictions" EntitySet="AgeRestrictions" />
+            <End Role="ResultChecking" EntitySet="ResultChecking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResultChecking_CheckingAgeLimit" Association="Self.FK_ResultChecking_CheckingAgeLimit">
+            <End Role="CheckingAgeLimit" EntitySet="CheckingAgeLimit" />
+            <End Role="ResultChecking" EntitySet="ResultChecking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Telecast_AgeRestrictions" Association="Self.FK_Telecast_AgeRestrictions">
+            <End Role="AgeRestrictions" EntitySet="AgeRestrictions" />
+            <End Role="Telecast" EntitySet="Telecast" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TVcompanyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="id_ac" />
+          </Key>
+          <Property Name="id_ac" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Analyst" Relationship="Self.FK_Analyst_Account" FromRole="Account" ToRole="Analyst" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Customer_Account" FromRole="Account" ToRole="Customer" />
+          <NavigationProperty Name="Director" Relationship="Self.FK_Director_Account" FromRole="Account" ToRole="Director" />
+          <NavigationProperty Name="Manager" Relationship="Self.FK_Manager_Account" FromRole="Account" ToRole="Manager" />
+        </EntityType>
+        <EntityType Name="Advertising">
+          <Key>
+            <PropertyRef Name="id_advertising" />
+          </Key>
+          <Property Name="id_advertising" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Product" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Wishes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_DesiredDisplayTime" Type="Int32" Nullable="false" />
+          <Property Name="id_AgeRestrictions" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AgeRestrictions" Relationship="Self.FK_Advertising_AgeRestrictions" FromRole="Advertising" ToRole="AgeRestrictions" />
+          <NavigationProperty Name="DesiredDisplayTime" Relationship="Self.FK_Advertising_DesiredDisplayTime" FromRole="Advertising" ToRole="DesiredDisplayTime" />
+          <NavigationProperty Name="CheckingAds" Relationship="Self.FK_CheckingAds_Advertising" FromRole="Advertising" ToRole="CheckingAds" />
+          <NavigationProperty Name="PreparationProgram" Relationship="Self.FK_PreparationProgram_Advertising" FromRole="Advertising" ToRole="PreparationProgram" />
+          <NavigationProperty Name="PurchaseAds" Relationship="Self.FK_PurchaseAds_Advertising" FromRole="Advertising" ToRole="PurchaseAds" />
+        </EntityType>
+        <EntityType Name="AgeRestrictions">
+          <Key>
+            <PropertyRef Name="id_AgeRestrictions" />
+          </Key>
+          <Property Name="id_AgeRestrictions" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Limitations" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Advertising" Relationship="Self.FK_Advertising_AgeRestrictions" FromRole="AgeRestrictions" ToRole="Advertising" />
+          <NavigationProperty Name="Esters" Relationship="Self.FK_Esters_AgeRestrictions" FromRole="AgeRestrictions" ToRole="Esters" />
+          <NavigationProperty Name="ResultChecking" Relationship="Self.FK_ResultChecking_AgeRestrictions" FromRole="AgeRestrictions" ToRole="ResultChecking" />
+          <NavigationProperty Name="Telecast" Relationship="Self.FK_Telecast_AgeRestrictions" FromRole="AgeRestrictions" ToRole="Telecast" />
+        </EntityType>
+        <EntityType Name="Analyst">
+          <Key>
+            <PropertyRef Name="id_Analyst" />
+          </Key>
+          <Property Name="id_Analyst" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_ac" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_Analyst_Account" FromRole="Analyst" ToRole="Account" />
+          <NavigationProperty Name="PreparationProgram" Relationship="Self.FK_PreparationProgram_Analyst" FromRole="Analyst" ToRole="PreparationProgram" />
+        </EntityType>
+        <EntityType Name="CheckingAds">
+          <Key>
+            <PropertyRef Name="id_CheckingAds" />
+          </Key>
+          <Property Name="id_CheckingAds" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameChecking" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_Director" Type="Int32" Nullable="false" />
+          <Property Name="id_advertising" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Advertising" Relationship="Self.FK_CheckingAds_Advertising" FromRole="CheckingAds" ToRole="Advertising" />
+          <NavigationProperty Name="Director" Relationship="Self.FK_CheckingAds_Director" FromRole="CheckingAds" ToRole="Director" />
+        </EntityType>
+        <EntityType Name="CheckingAgeLimit">
+          <Key>
+            <PropertyRef Name="id_ChekingAge" />
+          </Key>
+          <Property Name="id_ChekingAge" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Reason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_Director" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Director" Relationship="Self.FK_CheckingAgeLimit_Director" FromRole="CheckingAgeLimit" ToRole="Director" />
+          <NavigationProperty Name="ResultChecking" Relationship="Self.FK_ResultChecking_CheckingAgeLimit" FromRole="CheckingAgeLimit" ToRole="ResultChecking" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="id_Customer" />
+          </Key>
+          <Property Name="id_Customer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="id_ac" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumberCard" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_Customer_Account" FromRole="Customer" ToRole="Account" />
+          <NavigationProperty Name="CustomersBalance" Relationship="Self.FK_CustomersBalance_Customer" FromRole="Customer" ToRole="CustomersBalance" />
+        </EntityType>
+        <EntityType Name="CustomersBalance">
+          <Key>
+            <PropertyRef Name="id_CustomersBalance" />
+          </Key>
+          <Property Name="id_CustomersBalance" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Balans" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="id_Customer" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_CustomersBalance_Customer" FromRole="CustomersBalance" ToRole="Customer" />
+          <NavigationProperty Name="PurchaseOfCurrency" Relationship="Self.FK_PurchaseOfCurrency_CustomersBalance" FromRole="CustomersBalance" ToRole="PurchaseOfCurrency" />
+        </EntityType>
+        <EntityType Name="DesiredDisplayTime">
+          <Key>
+            <PropertyRef Name="id_DesiredDisplayTime" />
+          </Key>
+          <Property Name="id_DesiredDisplayTime" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateTimr" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Advertising" Relationship="Self.FK_Advertising_DesiredDisplayTime" FromRole="DesiredDisplayTime" ToRole="Advertising" />
+        </EntityType>
+        <EntityType Name="Director">
+          <Key>
+            <PropertyRef Name="id_Director" />
+          </Key>
+          <Property Name="id_Director" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_ac" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_Director_Account" FromRole="Director" ToRole="Account" />
+          <NavigationProperty Name="CheckingAds" Relationship="Self.FK_CheckingAds_Director" FromRole="Director" ToRole="CheckingAds" />
+          <NavigationProperty Name="CheckingAgeLimit" Relationship="Self.FK_CheckingAgeLimit_Director" FromRole="Director" ToRole="CheckingAgeLimit" />
+        </EntityType>
+        <EntityType Name="Esters">
+          <Key>
+            <PropertyRef Name="id_Esters" />
+          </Key>
+          <Property Name="id_Esters" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateEsters" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NameEsters" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_AgeRestrictions" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AgeRestrictions" Relationship="Self.FK_Esters_AgeRestrictions" FromRole="Esters" ToRole="AgeRestrictions" />
+          <NavigationProperty Name="PreparationProgram" Relationship="Self.FK_PreparationProgram_Esters" FromRole="Esters" ToRole="PreparationProgram" />
+        </EntityType>
+        <EntityType Name="InternalCurrency">
+          <Key>
+            <PropertyRef Name="id_InternalCurrency" />
+          </Key>
+          <Property Name="id_InternalCurrency" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameCurrency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Balance" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="PurchaseAds" Relationship="Self.FK_PurchaseAds_InternalCurrency" FromRole="InternalCurrency" ToRole="PurchaseAds" />
+          <NavigationProperty Name="PurchaseOfCurrency" Relationship="Self.FK_PurchaseOfCurrency_InternalCurrency" FromRole="InternalCurrency" ToRole="PurchaseOfCurrency" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="id_Manager" />
+          </Key>
+          <Property Name="id_Manager" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_ac" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_Manager_Account" FromRole="Manager" ToRole="Account" />
+          <NavigationProperty Name="ProgramRelease" Relationship="Self.FK_ProgramRelease_Manager" FromRole="Manager" ToRole="ProgramRelease" />
+        </EntityType>
+        <EntityType Name="PreparationProgram">
+          <Key>
+            <PropertyRef Name="id_PreparationProgram" />
+          </Key>
+          <Property Name="id_PreparationProgram" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameProgram" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_advertising" Type="Int32" />
+          <Property Name="id_Esters" Type="Int32" />
+          <Property Name="id_telecast" Type="Int32" />
+          <Property Name="id_Analyst" Type="Int32" Nullable="false" />
+          <Property Name="id_ProgramRelease" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Advertising" Relationship="Self.FK_PreparationProgram_Advertising" FromRole="PreparationProgram" ToRole="Advertising" />
+          <NavigationProperty Name="Analyst" Relationship="Self.FK_PreparationProgram_Analyst" FromRole="PreparationProgram" ToRole="Analyst" />
+          <NavigationProperty Name="Esters" Relationship="Self.FK_PreparationProgram_Esters" FromRole="PreparationProgram" ToRole="Esters" />
+          <NavigationProperty Name="ProgramRelease" Relationship="Self.FK_PreparationProgram_ProgramRelease" FromRole="PreparationProgram" ToRole="ProgramRelease" />
+          <NavigationProperty Name="Telecast" Relationship="Self.FK_PreparationProgram_Telecast" FromRole="PreparationProgram" ToRole="Telecast" />
+        </EntityType>
+        <EntityType Name="ProgramRelease">
+          <Key>
+            <PropertyRef Name="id_ProgramRelease" />
+          </Key>
+          <Property Name="id_ProgramRelease" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Day" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="id_Manager" Type="Int32" Nullable="false" />
+          <Property Name="id_Program" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Manager" Relationship="Self.FK_ProgramRelease_Manager" FromRole="ProgramRelease" ToRole="Manager" />
+          <NavigationProperty Name="PreparationProgram" Relationship="Self.FK_PreparationProgram_ProgramRelease" FromRole="ProgramRelease" ToRole="PreparationProgram" />
+        </EntityType>
+        <EntityType Name="PurchaseAds">
+          <Key>
+            <PropertyRef Name="id_PurchaseAds" />
+          </Key>
+          <Property Name="id_PurchaseAds" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Duration" Type="Time" Nullable="false" Precision="0" />
+          <Property Name="id_InternalCurrency" Type="Int32" Nullable="false" />
+          <Property Name="id_advertising" Type="Int32" Nullable="false" />
+          <Property Name="id_Manager" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Advertising" Relationship="Self.FK_PurchaseAds_Advertising" FromRole="PurchaseAds" ToRole="Advertising" />
+          <NavigationProperty Name="InternalCurrency" Relationship="Self.FK_PurchaseAds_InternalCurrency" FromRole="PurchaseAds" ToRole="InternalCurrency" />
+        </EntityType>
+        <EntityType Name="PurchaseOfCurrency">
+          <Key>
+            <PropertyRef Name="id_Purchase" />
+          </Key>
+          <Property Name="id_Purchase" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConfirmationOfPurchase" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_CustomersBalance" Type="Int32" Nullable="false" />
+          <Property Name="id_InternalCurrency" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CustomersBalance" Relationship="Self.FK_PurchaseOfCurrency_CustomersBalance" FromRole="PurchaseOfCurrency" ToRole="CustomersBalance" />
+          <NavigationProperty Name="InternalCurrency" Relationship="Self.FK_PurchaseOfCurrency_InternalCurrency" FromRole="PurchaseOfCurrency" ToRole="InternalCurrency" />
+        </EntityType>
+        <EntityType Name="ResultChecking">
+          <Key>
+            <PropertyRef Name="id_ResultChecking" />
+          </Key>
+          <Property Name="id_ResultChecking" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Result" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_AgeRestrictions" Type="Int32" Nullable="false" />
+          <Property Name="id_ChekingAge" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AgeRestrictions" Relationship="Self.FK_ResultChecking_AgeRestrictions" FromRole="ResultChecking" ToRole="AgeRestrictions" />
+          <NavigationProperty Name="CheckingAgeLimit" Relationship="Self.FK_ResultChecking_CheckingAgeLimit" FromRole="ResultChecking" ToRole="CheckingAgeLimit" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Telecast">
+          <Key>
+            <PropertyRef Name="id_telecast" />
+          </Key>
+          <Property Name="id_telecast" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameTransfers" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Duration" Type="Time" Nullable="false" Precision="0" />
+          <Property Name="id_AgeRestrictions" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AgeRestrictions" Relationship="Self.FK_Telecast_AgeRestrictions" FromRole="Telecast" ToRole="AgeRestrictions" />
+          <NavigationProperty Name="PreparationProgram" Relationship="Self.FK_PreparationProgram_Telecast" FromRole="Telecast" ToRole="PreparationProgram" />
+        </EntityType>
+        <Association Name="FK_Analyst_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Analyst" Type="Self.Analyst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="id_ac" />
+            </Principal>
+            <Dependent Role="Analyst">
+              <PropertyRef Name="id_ac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="id_ac" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="id_ac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Director_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Director" Type="Self.Director" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="id_ac" />
+            </Principal>
+            <Dependent Role="Director">
+              <PropertyRef Name="id_ac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Manager_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Manager" Type="Self.Manager" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="id_ac" />
+            </Principal>
+            <Dependent Role="Manager">
+              <PropertyRef Name="id_ac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertising_AgeRestrictions">
+          <End Role="AgeRestrictions" Type="Self.AgeRestrictions" Multiplicity="1" />
+          <End Role="Advertising" Type="Self.Advertising" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgeRestrictions">
+              <PropertyRef Name="id_AgeRestrictions" />
+            </Principal>
+            <Dependent Role="Advertising">
+              <PropertyRef Name="id_AgeRestrictions" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertising_DesiredDisplayTime">
+          <End Role="DesiredDisplayTime" Type="Self.DesiredDisplayTime" Multiplicity="1" />
+          <End Role="Advertising" Type="Self.Advertising" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DesiredDisplayTime">
+              <PropertyRef Name="id_DesiredDisplayTime" />
+            </Principal>
+            <Dependent Role="Advertising">
+              <PropertyRef Name="id_DesiredDisplayTime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CheckingAds_Advertising">
+          <End Role="Advertising" Type="Self.Advertising" Multiplicity="1" />
+          <End Role="CheckingAds" Type="Self.CheckingAds" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertising">
+              <PropertyRef Name="id_advertising" />
+            </Principal>
+            <Dependent Role="CheckingAds">
+              <PropertyRef Name="id_advertising" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreparationProgram_Advertising">
+          <End Role="Advertising" Type="Self.Advertising" Multiplicity="0..1" />
+          <End Role="PreparationProgram" Type="Self.PreparationProgram" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertising">
+              <PropertyRef Name="id_advertising" />
+            </Principal>
+            <Dependent Role="PreparationProgram">
+              <PropertyRef Name="id_advertising" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseAds_Advertising">
+          <End Role="Advertising" Type="Self.Advertising" Multiplicity="1" />
+          <End Role="PurchaseAds" Type="Self.PurchaseAds" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertising">
+              <PropertyRef Name="id_advertising" />
+            </Principal>
+            <Dependent Role="PurchaseAds">
+              <PropertyRef Name="id_advertising" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Esters_AgeRestrictions">
+          <End Role="AgeRestrictions" Type="Self.AgeRestrictions" Multiplicity="1" />
+          <End Role="Esters" Type="Self.Esters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgeRestrictions">
+              <PropertyRef Name="id_AgeRestrictions" />
+            </Principal>
+            <Dependent Role="Esters">
+              <PropertyRef Name="id_AgeRestrictions" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResultChecking_AgeRestrictions">
+          <End Role="AgeRestrictions" Type="Self.AgeRestrictions" Multiplicity="1" />
+          <End Role="ResultChecking" Type="Self.ResultChecking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgeRestrictions">
+              <PropertyRef Name="id_AgeRestrictions" />
+            </Principal>
+            <Dependent Role="ResultChecking">
+              <PropertyRef Name="id_AgeRestrictions" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Telecast_AgeRestrictions">
+          <End Role="AgeRestrictions" Type="Self.AgeRestrictions" Multiplicity="1" />
+          <End Role="Telecast" Type="Self.Telecast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgeRestrictions">
+              <PropertyRef Name="id_AgeRestrictions" />
+            </Principal>
+            <Dependent Role="Telecast">
+              <PropertyRef Name="id_AgeRestrictions" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreparationProgram_Analyst">
+          <End Role="Analyst" Type="Self.Analyst" Multiplicity="1" />
+          <End Role="PreparationProgram" Type="Self.PreparationProgram" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Analyst">
+              <PropertyRef Name="id_Analyst" />
+            </Principal>
+            <Dependent Role="PreparationProgram">
+              <PropertyRef Name="id_Analyst" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CheckingAds_Director">
+          <End Role="Director" Type="Self.Director" Multiplicity="1" />
+          <End Role="CheckingAds" Type="Self.CheckingAds" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Director">
+              <PropertyRef Name="id_Director" />
+            </Principal>
+            <Dependent Role="CheckingAds">
+              <PropertyRef Name="id_Director" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CheckingAgeLimit_Director">
+          <End Role="Director" Type="Self.Director" Multiplicity="1" />
+          <End Role="CheckingAgeLimit" Type="Self.CheckingAgeLimit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Director">
+              <PropertyRef Name="id_Director" />
+            </Principal>
+            <Dependent Role="CheckingAgeLimit">
+              <PropertyRef Name="id_Director" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResultChecking_CheckingAgeLimit">
+          <End Role="CheckingAgeLimit" Type="Self.CheckingAgeLimit" Multiplicity="1" />
+          <End Role="ResultChecking" Type="Self.ResultChecking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CheckingAgeLimit">
+              <PropertyRef Name="id_ChekingAge" />
+            </Principal>
+            <Dependent Role="ResultChecking">
+              <PropertyRef Name="id_ChekingAge" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomersBalance_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CustomersBalance" Type="Self.CustomersBalance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="id_Customer" />
+            </Principal>
+            <Dependent Role="CustomersBalance">
+              <PropertyRef Name="id_Customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseOfCurrency_CustomersBalance">
+          <End Role="CustomersBalance" Type="Self.CustomersBalance" Multiplicity="1" />
+          <End Role="PurchaseOfCurrency" Type="Self.PurchaseOfCurrency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomersBalance">
+              <PropertyRef Name="id_CustomersBalance" />
+            </Principal>
+            <Dependent Role="PurchaseOfCurrency">
+              <PropertyRef Name="id_CustomersBalance" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreparationProgram_Esters">
+          <End Role="Esters" Type="Self.Esters" Multiplicity="0..1" />
+          <End Role="PreparationProgram" Type="Self.PreparationProgram" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Esters">
+              <PropertyRef Name="id_Esters" />
+            </Principal>
+            <Dependent Role="PreparationProgram">
+              <PropertyRef Name="id_Esters" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseAds_InternalCurrency">
+          <End Role="InternalCurrency" Type="Self.InternalCurrency" Multiplicity="1" />
+          <End Role="PurchaseAds" Type="Self.PurchaseAds" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InternalCurrency">
+              <PropertyRef Name="id_InternalCurrency" />
+            </Principal>
+            <Dependent Role="PurchaseAds">
+              <PropertyRef Name="id_InternalCurrency" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseOfCurrency_InternalCurrency">
+          <End Role="InternalCurrency" Type="Self.InternalCurrency" Multiplicity="1" />
+          <End Role="PurchaseOfCurrency" Type="Self.PurchaseOfCurrency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InternalCurrency">
+              <PropertyRef Name="id_InternalCurrency" />
+            </Principal>
+            <Dependent Role="PurchaseOfCurrency">
+              <PropertyRef Name="id_InternalCurrency" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgramRelease_Manager">
+          <End Role="Manager" Type="Self.Manager" Multiplicity="1" />
+          <End Role="ProgramRelease" Type="Self.ProgramRelease" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manager">
+              <PropertyRef Name="id_Manager" />
+            </Principal>
+            <Dependent Role="ProgramRelease">
+              <PropertyRef Name="id_Manager" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreparationProgram_ProgramRelease">
+          <End Role="ProgramRelease" Type="Self.ProgramRelease" Multiplicity="1" />
+          <End Role="PreparationProgram" Type="Self.PreparationProgram" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProgramRelease">
+              <PropertyRef Name="id_ProgramRelease" />
+            </Principal>
+            <Dependent Role="PreparationProgram">
+              <PropertyRef Name="id_ProgramRelease" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreparationProgram_Telecast">
+          <End Role="Telecast" Type="Self.Telecast" Multiplicity="0..1" />
+          <End Role="PreparationProgram" Type="Self.PreparationProgram" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Telecast">
+              <PropertyRef Name="id_telecast" />
+            </Principal>
+            <Dependent Role="PreparationProgram">
+              <PropertyRef Name="id_telecast" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TVcompanyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Account" EntityType="Self.Account" />
+          <EntitySet Name="Advertising" EntityType="Self.Advertising" />
+          <EntitySet Name="AgeRestrictions" EntityType="Self.AgeRestrictions" />
+          <EntitySet Name="Analyst" EntityType="Self.Analyst" />
+          <EntitySet Name="CheckingAds" EntityType="Self.CheckingAds" />
+          <EntitySet Name="CheckingAgeLimit" EntityType="Self.CheckingAgeLimit" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" />
+          <EntitySet Name="CustomersBalance" EntityType="Self.CustomersBalance" />
+          <EntitySet Name="DesiredDisplayTime" EntityType="Self.DesiredDisplayTime" />
+          <EntitySet Name="Director" EntityType="Self.Director" />
+          <EntitySet Name="Esters" EntityType="Self.Esters" />
+          <EntitySet Name="InternalCurrency" EntityType="Self.InternalCurrency" />
+          <EntitySet Name="Manager" EntityType="Self.Manager" />
+          <EntitySet Name="PreparationProgram" EntityType="Self.PreparationProgram" />
+          <EntitySet Name="ProgramRelease" EntityType="Self.ProgramRelease" />
+          <EntitySet Name="PurchaseAds" EntityType="Self.PurchaseAds" />
+          <EntitySet Name="PurchaseOfCurrency" EntityType="Self.PurchaseOfCurrency" />
+          <EntitySet Name="ResultChecking" EntityType="Self.ResultChecking" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Telecast" EntityType="Self.Telecast" />
+          <AssociationSet Name="FK_Analyst_Account" Association="Self.FK_Analyst_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Analyst" EntitySet="Analyst" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Account" Association="Self.FK_Customer_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Director_Account" Association="Self.FK_Director_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Director" EntitySet="Director" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Manager_Account" Association="Self.FK_Manager_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Manager" EntitySet="Manager" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertising_AgeRestrictions" Association="Self.FK_Advertising_AgeRestrictions">
+            <End Role="AgeRestrictions" EntitySet="AgeRestrictions" />
+            <End Role="Advertising" EntitySet="Advertising" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertising_DesiredDisplayTime" Association="Self.FK_Advertising_DesiredDisplayTime">
+            <End Role="DesiredDisplayTime" EntitySet="DesiredDisplayTime" />
+            <End Role="Advertising" EntitySet="Advertising" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CheckingAds_Advertising" Association="Self.FK_CheckingAds_Advertising">
+            <End Role="Advertising" EntitySet="Advertising" />
+            <End Role="CheckingAds" EntitySet="CheckingAds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreparationProgram_Advertising" Association="Self.FK_PreparationProgram_Advertising">
+            <End Role="Advertising" EntitySet="Advertising" />
+            <End Role="PreparationProgram" EntitySet="PreparationProgram" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseAds_Advertising" Association="Self.FK_PurchaseAds_Advertising">
+            <End Role="Advertising" EntitySet="Advertising" />
+            <End Role="PurchaseAds" EntitySet="PurchaseAds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Esters_AgeRestrictions" Association="Self.FK_Esters_AgeRestrictions">
+            <End Role="AgeRestrictions" EntitySet="AgeRestrictions" />
+            <End Role="Esters" EntitySet="Esters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResultChecking_AgeRestrictions" Association="Self.FK_ResultChecking_AgeRestrictions">
+            <End Role="AgeRestrictions" EntitySet="AgeRestrictions" />
+            <End Role="ResultChecking" EntitySet="ResultChecking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Telecast_AgeRestrictions" Association="Self.FK_Telecast_AgeRestrictions">
+            <End Role="AgeRestrictions" EntitySet="AgeRestrictions" />
+            <End Role="Telecast" EntitySet="Telecast" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreparationProgram_Analyst" Association="Self.FK_PreparationProgram_Analyst">
+            <End Role="Analyst" EntitySet="Analyst" />
+            <End Role="PreparationProgram" EntitySet="PreparationProgram" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CheckingAds_Director" Association="Self.FK_CheckingAds_Director">
+            <End Role="Director" EntitySet="Director" />
+            <End Role="CheckingAds" EntitySet="CheckingAds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CheckingAgeLimit_Director" Association="Self.FK_CheckingAgeLimit_Director">
+            <End Role="Director" EntitySet="Director" />
+            <End Role="CheckingAgeLimit" EntitySet="CheckingAgeLimit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResultChecking_CheckingAgeLimit" Association="Self.FK_ResultChecking_CheckingAgeLimit">
+            <End Role="CheckingAgeLimit" EntitySet="CheckingAgeLimit" />
+            <End Role="ResultChecking" EntitySet="ResultChecking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomersBalance_Customer" Association="Self.FK_CustomersBalance_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomersBalance" EntitySet="CustomersBalance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOfCurrency_CustomersBalance" Association="Self.FK_PurchaseOfCurrency_CustomersBalance">
+            <End Role="CustomersBalance" EntitySet="CustomersBalance" />
+            <End Role="PurchaseOfCurrency" EntitySet="PurchaseOfCurrency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreparationProgram_Esters" Association="Self.FK_PreparationProgram_Esters">
+            <End Role="Esters" EntitySet="Esters" />
+            <End Role="PreparationProgram" EntitySet="PreparationProgram" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseAds_InternalCurrency" Association="Self.FK_PurchaseAds_InternalCurrency">
+            <End Role="InternalCurrency" EntitySet="InternalCurrency" />
+            <End Role="PurchaseAds" EntitySet="PurchaseAds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOfCurrency_InternalCurrency" Association="Self.FK_PurchaseOfCurrency_InternalCurrency">
+            <End Role="InternalCurrency" EntitySet="InternalCurrency" />
+            <End Role="PurchaseOfCurrency" EntitySet="PurchaseOfCurrency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgramRelease_Manager" Association="Self.FK_ProgramRelease_Manager">
+            <End Role="Manager" EntitySet="Manager" />
+            <End Role="ProgramRelease" EntitySet="ProgramRelease" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreparationProgram_ProgramRelease" Association="Self.FK_PreparationProgram_ProgramRelease">
+            <End Role="ProgramRelease" EntitySet="ProgramRelease" />
+            <End Role="PreparationProgram" EntitySet="PreparationProgram" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreparationProgram_Telecast" Association="Self.FK_PreparationProgram_Telecast">
+            <End Role="Telecast" EntitySet="Telecast" />
+            <End Role="PreparationProgram" EntitySet="PreparationProgram" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище TVcompanyModelContainer" CdmEntityContainer="TVcompanyEntities">
+          <EntitySetMapping Name="Account">
+            <EntityTypeMapping TypeName="TVcompanyModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="id_ac" ColumnName="id_ac" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Advertising">
+            <EntityTypeMapping TypeName="TVcompanyModel.Advertising">
+              <MappingFragment StoreEntitySet="Advertising">
+                <ScalarProperty Name="id_advertising" ColumnName="id_advertising" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Wishes" ColumnName="Wishes" />
+                <ScalarProperty Name="id_DesiredDisplayTime" ColumnName="id_DesiredDisplayTime" />
+                <ScalarProperty Name="id_AgeRestrictions" ColumnName="id_AgeRestrictions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AgeRestrictions">
+            <EntityTypeMapping TypeName="TVcompanyModel.AgeRestrictions">
+              <MappingFragment StoreEntitySet="AgeRestrictions">
+                <ScalarProperty Name="id_AgeRestrictions" ColumnName="id_AgeRestrictions" />
+                <ScalarProperty Name="Limitations" ColumnName="Limitations" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Analyst">
+            <EntityTypeMapping TypeName="TVcompanyModel.Analyst">
+              <MappingFragment StoreEntitySet="Analyst">
+                <ScalarProperty Name="id_Analyst" ColumnName="id_Analyst" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="id_ac" ColumnName="id_ac" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CheckingAds">
+            <EntityTypeMapping TypeName="TVcompanyModel.CheckingAds">
+              <MappingFragment StoreEntitySet="CheckingAds">
+                <ScalarProperty Name="id_CheckingAds" ColumnName="id_CheckingAds" />
+                <ScalarProperty Name="NameChecking" ColumnName="NameChecking" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="id_Director" ColumnName="id_Director" />
+                <ScalarProperty Name="id_advertising" ColumnName="id_advertising" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CheckingAgeLimit">
+            <EntityTypeMapping TypeName="TVcompanyModel.CheckingAgeLimit">
+              <MappingFragment StoreEntitySet="CheckingAgeLimit">
+                <ScalarProperty Name="id_ChekingAge" ColumnName="id_ChekingAge" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="id_Director" ColumnName="id_Director" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="TVcompanyModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="id_Customer" ColumnName="id_Customer" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="id_ac" ColumnName="id_ac" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="NumberCard" ColumnName="NumberCard" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomersBalance">
+            <EntityTypeMapping TypeName="TVcompanyModel.CustomersBalance">
+              <MappingFragment StoreEntitySet="CustomersBalance">
+                <ScalarProperty Name="id_CustomersBalance" ColumnName="id_CustomersBalance" />
+                <ScalarProperty Name="Balans" ColumnName="Balans" />
+                <ScalarProperty Name="id_Customer" ColumnName="id_Customer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DesiredDisplayTime">
+            <EntityTypeMapping TypeName="TVcompanyModel.DesiredDisplayTime">
+              <MappingFragment StoreEntitySet="DesiredDisplayTime">
+                <ScalarProperty Name="id_DesiredDisplayTime" ColumnName="id_DesiredDisplayTime" />
+                <ScalarProperty Name="DateTimr" ColumnName="DateTimr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Director">
+            <EntityTypeMapping TypeName="TVcompanyModel.Director">
+              <MappingFragment StoreEntitySet="Director">
+                <ScalarProperty Name="id_Director" ColumnName="id_Director" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="id_ac" ColumnName="id_ac" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Esters">
+            <EntityTypeMapping TypeName="TVcompanyModel.Esters">
+              <MappingFragment StoreEntitySet="Esters">
+                <ScalarProperty Name="id_Esters" ColumnName="id_Esters" />
+                <ScalarProperty Name="DateEsters" ColumnName="DateEsters" />
+                <ScalarProperty Name="NameEsters" ColumnName="NameEsters" />
+                <ScalarProperty Name="id_AgeRestrictions" ColumnName="id_AgeRestrictions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InternalCurrency">
+            <EntityTypeMapping TypeName="TVcompanyModel.InternalCurrency">
+              <MappingFragment StoreEntitySet="InternalCurrency">
+                <ScalarProperty Name="id_InternalCurrency" ColumnName="id_InternalCurrency" />
+                <ScalarProperty Name="NameCurrency" ColumnName="NameCurrency" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manager">
+            <EntityTypeMapping TypeName="TVcompanyModel.Manager">
+              <MappingFragment StoreEntitySet="Manager">
+                <ScalarProperty Name="id_Manager" ColumnName="id_Manager" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="id_ac" ColumnName="id_ac" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PreparationProgram">
+            <EntityTypeMapping TypeName="TVcompanyModel.PreparationProgram">
+              <MappingFragment StoreEntitySet="PreparationProgram">
+                <ScalarProperty Name="id_PreparationProgram" ColumnName="id_PreparationProgram" />
+                <ScalarProperty Name="NameProgram" ColumnName="NameProgram" />
+                <ScalarProperty Name="id_advertising" ColumnName="id_advertising" />
+                <ScalarProperty Name="id_Esters" ColumnName="id_Esters" />
+                <ScalarProperty Name="id_telecast" ColumnName="id_telecast" />
+                <ScalarProperty Name="id_Analyst" ColumnName="id_Analyst" />
+                <ScalarProperty Name="id_ProgramRelease" ColumnName="id_ProgramRelease" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProgramRelease">
+            <EntityTypeMapping TypeName="TVcompanyModel.ProgramRelease">
+              <MappingFragment StoreEntitySet="ProgramRelease">
+                <ScalarProperty Name="id_ProgramRelease" ColumnName="id_ProgramRelease" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="id_Manager" ColumnName="id_Manager" />
+                <ScalarProperty Name="id_Program" ColumnName="id_Program" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseAds">
+            <EntityTypeMapping TypeName="TVcompanyModel.PurchaseAds">
+              <MappingFragment StoreEntitySet="PurchaseAds">
+                <ScalarProperty Name="id_PurchaseAds" ColumnName="id_PurchaseAds" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="id_InternalCurrency" ColumnName="id_InternalCurrency" />
+                <ScalarProperty Name="id_advertising" ColumnName="id_advertising" />
+                <ScalarProperty Name="id_Manager" ColumnName="id_Manager" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseOfCurrency">
+            <EntityTypeMapping TypeName="TVcompanyModel.PurchaseOfCurrency">
+              <MappingFragment StoreEntitySet="PurchaseOfCurrency">
+                <ScalarProperty Name="id_Purchase" ColumnName="id_Purchase" />
+                <ScalarProperty Name="ConfirmationOfPurchase" ColumnName="ConfirmationOfPurchase" />
+                <ScalarProperty Name="id_CustomersBalance" ColumnName="id_CustomersBalance" />
+                <ScalarProperty Name="id_InternalCurrency" ColumnName="id_InternalCurrency" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResultChecking">
+            <EntityTypeMapping TypeName="TVcompanyModel.ResultChecking">
+              <MappingFragment StoreEntitySet="ResultChecking">
+                <ScalarProperty Name="id_ResultChecking" ColumnName="id_ResultChecking" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="id_AgeRestrictions" ColumnName="id_AgeRestrictions" />
+                <ScalarProperty Name="id_ChekingAge" ColumnName="id_ChekingAge" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TVcompanyModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Telecast">
+            <EntityTypeMapping TypeName="TVcompanyModel.Telecast">
+              <MappingFragment StoreEntitySet="Telecast">
+                <ScalarProperty Name="id_telecast" ColumnName="id_telecast" />
+                <ScalarProperty Name="NameTransfers" ColumnName="NameTransfers" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="id_AgeRestrictions" ColumnName="id_AgeRestrictions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

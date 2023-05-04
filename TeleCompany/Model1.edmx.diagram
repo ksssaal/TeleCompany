@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d63894f14d9e49e6bb4a9b09d5d49452" Name="Diagram1">
+        <EntityTypeShape EntityType="TVcompanyModel.Account" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVcompanyModel.Advertising" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVcompanyModel.AgeRestrictions" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVcompanyModel.Analyst" Width="1.5" PointX="3" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVcompanyModel.CheckingAds" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVcompanyModel.CheckingAgeLimit" Width="1.5" PointX="3.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVcompanyModel.Customer" Width="1.5" PointX="3" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVcompanyModel.CustomersBalance" Width="1.5" PointX="5.25" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVcompanyModel.DesiredDisplayTime" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVcompanyModel.Director" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVcompanyModel.Esters" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVcompanyModel.InternalCurrency" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVcompanyModel.Manager" Width="1.5" PointX="0.75" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVcompanyModel.PreparationProgram" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVcompanyModel.ProgramRelease" Width="1.5" PointX="3" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVcompanyModel.PurchaseAds" Width="1.5" PointX="8.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVcompanyModel.PurchaseOfCurrency" Width="1.5" PointX="8.25" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVcompanyModel.ResultChecking" Width="1.5" PointX="6" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVcompanyModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVcompanyModel.Telecast" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
+        <AssociationConnector Association="TVcompanyModel.FK_Analyst_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_Customer_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_Director_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_Manager_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_Advertising_AgeRestrictions" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_Advertising_DesiredDisplayTime" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_CheckingAds_Advertising" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_PreparationProgram_Advertising" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_PurchaseAds_Advertising" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_Esters_AgeRestrictions" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_ResultChecking_AgeRestrictions" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_Telecast_AgeRestrictions" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_PreparationProgram_Analyst" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_CheckingAds_Director" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_CheckingAgeLimit_Director" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_ResultChecking_CheckingAgeLimit" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_CustomersBalance_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_PurchaseOfCurrency_CustomersBalance" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_PreparationProgram_Esters" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_PurchaseAds_InternalCurrency" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_PurchaseOfCurrency_InternalCurrency" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_ProgramRelease_Manager" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_PreparationProgram_ProgramRelease" ManuallyRouted="false" />
+        <AssociationConnector Association="TVcompanyModel.FK_PreparationProgram_Telecast" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
